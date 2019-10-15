@@ -13,6 +13,11 @@
     text-align: right;
 }
 
+#image{
+    height:300px;
+    width:100%;
+}
+
 .reveal h3 {
     font-size: 1.2em;
     color: lightgray;

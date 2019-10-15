@@ -1,6 +1,7 @@
 ---
 author: Malte Bonart
 title: Citibike Classification Challenge
+subtitle: <i class="fas fa-biking"></i>
 date: October 16, 2019
 header-includes:
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" />
@@ -68,9 +69,6 @@ Trips with a duration > 2 hours and < 20 seconds have been removed from the anal
 
 <iframe scrolling="no" style="border:none;" seamless="seamless" data-src="figures/hour.html" height="500" width="100%"></iframe>
 
-
-
-
 ### model features
 
 - tripduration
@@ -101,7 +99,6 @@ tripduration | 1 | 0.15
 + area | 173 | 0.72
 </div>
 
-
 <div class="smallfont">
 The training is based on a random sample of n=5000000 trips, due to resource and time constraints.
 </div>
@@ -121,4 +118,25 @@ Biking faster | <i class="fas fa-arrow-circle-right"></i> 50% | <i class="fas fa
 <div class="smallfont">
 Based on a n=2000 random sample of trips, collected with the GoogleMaps Directions API. Wilcoxon signed-rank test and t-test for pairs are both significant.
 <i class="fas fa-arrow-circle-up"></i> biking faster | <i class="fas fa-arrow-circle-down"></i> biking slower
+</div>
+
+### 4726 injured bikers, 10 deaths in NYC car accidents 2018
+
+driver inattenion <br>
+failure to yield right of way <br>
+confusion of bicyclist <br>
+traffic control disregarded <br>
+passing or lane usage improber <br>
+
+<br>
+<div class="smallfont">
+Top reasons for NYC motor vehicle collisions where at least one biker was injured.
+</div>
+
+### {data-background="#003f5c"}
+
+<img src="https://external-preview.redd.it/ZW81oLCcZlA8wW0rYvcF8ILf8U4b0tka6w0sGSYv8-4.png?auto=webp&amp;s=bf1483e4e44ecf5dfe33fdbd654f4eab5411f764" height="450">
+
+<div class="smallfont">
+Source: <http://tiny.cc/af3kez>
 </div>
