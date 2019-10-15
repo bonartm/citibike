@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Malte Bonart">
+  <meta name="dcterms.date" content="2019-10-16">
+  <title>Citibike Classification Challenge</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="https://revealjs.com/css/reveal.css">
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="https://revealjs.com/css/theme/night.css" id="theme">
+  <link rel="stylesheet" href="www/custom.css"/>
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'https://revealjs.com/css/print/pdf.css' : 'https://revealjs.com/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="https://revealjs.com/lib/js/html5shiv.js"></script>
+  <![endif]-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="www/funs.js"></script>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+  <h1 class="title">Citibike Classification Challenge</h1>
+  <p class="author">Malte Bonart</p>
+  <p class="date">October 16, 2019</p>
+</section>
+
+<section class="slide level3">
+
+<div class="smallfont">
+<p>
+This work and the underlying source code is available on <a href="https://github.com/bonartm/citibike"> <i class="fab fa-github-square"></i>GitHub</a>.
+</p>
+<p>
+This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+</p>
+<p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /></p>
+</div>
+</section>
+<section id="moderately-imbalanced-data" class="slide level3">
+<h3>moderately imbalanced data</h3>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"> </th>
+<th style="text-align: center;">Day Pass/ Three Day Pass</th>
+<th style="text-align: center;">Annual Membership</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><i class="fas fa-user"></i></td>
+<td style="text-align: center;"><em>Customer (11%)</em></td>
+<td style="text-align: center;"><em>Subscriber (89%)</em></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><i class="fas fa-dollar-sign"></i></td>
+<td style="text-align: center;">12.00$ / day</td>
+<td style="text-align: center;">169.00$ / year</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><i class="fas fa-clock"></i></td>
+<td style="text-align: center;">max 30 min</td>
+<td style="text-align: center;">max 45 min</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><i class="fas fa-plus"></i></td>
+<td style="text-align: center;">4.00$ / 15 min</td>
+<td style="text-align: center;">2.50$ / 15 min</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="customers-bike-for-a-longer-period" class="slide level3">
+<h3>customers bike for a longer period</h3>
+<iframe scrolling="no" style="border:none;" seamless="seamless" data-src="figures/tripduration.html" height="450" width="100%">
+</iframe>
+<div class="smallfont">
+<p>Trips with a duration &gt; 2 hours and &lt; 20 seconds have been removed from the analysis (~0.3%). Customer ride on average 1441, Subscribers 721 seconds.</p>
+</div>
+</section>
+<section id="section" class="slide level3" data-background-iframe="figures/map.html">
+<h3></h3>
+</section>
+<section id="anomaly-in-the-age-distribution-for-customers" class="slide level3">
+<h3>anomaly in the <em>age distribution</em> for customers</h3>
+<iframe scrolling="no" style="border:none;" seamless="seamless" data-src="figures/age.html" height="450" width="100%">
+</iframe>
+<div class="smallfont">
+<p>6% of all trips from <em>customers</em> have an age value of 49.</p>
+</div>
+</section>
+<section id="gender-is-mostly-unknown-for-customers" class="slide level3">
+<h3><em>gender</em> is mostly unknown for customers</h3>
+<iframe scrolling="no" style="border:none;" seamless="seamless" data-src="figures/gender.html" height="500" width="100%">
+</iframe>
+</section>
+<section id="more-customers-on-the-weekend" class="slide level3">
+<h3>more customers on the weekend</h3>
+<iframe scrolling="no" style="border:none;" seamless="seamless" data-src="figures/weekday.html" height="450" width="100%">
+</iframe>
+<div class="smallfont">
+<p>0:Sunday - 6:Saturday.</p>
+</div>
+</section>
+<section id="more-clients-during-summer-months" class="slide level3">
+<h3>more clients during summer <em>months</em></h3>
+<iframe scrolling="no" style="border:none;" seamless="seamless" data-src="figures/month.html" height="500" width="100%">
+</iframe>
+</section>
+<section id="more-subscribers-during-rush-hour" class="slide level3">
+<h3>more subscribers during rush <em>hour</em></h3>
+<iframe scrolling="no" style="border:none;" seamless="seamless" data-src="figures/hour.html" height="500" width="100%">
+</iframe>
+</section>
+<section id="model-features" class="slide level3">
+<h3>model features</h3>
+<ul>
+<li>tripduration</li>
+<li>starttime, stoptime</li>
+<li>hour, weekday, month</li>
+<li>start (lat,lon), end (lat,lon)</li>
+<li>age, close_to_fifty</li>
+<li>gender</li>
+<li>NYC neighbourhoods (via <i class="fab fa-google"></i> geocoding API)</li>
+</ul>
+</section>
+<section id="the-baseline-performs-well---nearest-neighbour-classifier-is-worse" class="slide level3">
+<h3>the baseline performs well - nearest neighbour classifier is worse</h3>
+<iframe scrolling="no" style="border:none;" seamless="seamless" data-src="figures/results.html" height="350" width="100%">
+</iframe>
+<div class="smallfont">
+<p>The baseline was constructed by classifying all trips with <code>unknown</code> gender as <code>customers</code>. Nearest neighbour classification is based on <code>time</code>, <code>start location</code>, <code>end location</code> and <code>tripduration</code>.</p>
+</div>
+</section>
+<section id="classification-does-not-outperform-baseline" class="slide level3">
+<h3>classification does <strong>not</strong> outperform baseline</h3>
+<div class="smalltable">
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">features</th>
+<th style="text-align: center;">dimensions</th>
+<th style="text-align: center;">logistic regression (f-score)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">tripduration</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0.15</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">+ gender</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">0.70</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">+ age</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">0.71</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">+ time</td>
+<td style="text-align: center;">45</td>
+<td style="text-align: center;">0.71</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">+ area</td>
+<td style="text-align: center;">173</td>
+<td style="text-align: center;">0.72</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="smallfont">
+<p>The training is based on a random sample of n=5000000 trips, due to ressource and time constraints.</p>
+</div>
+</section>
+<section id="random-forrest-does-not-improve-the-classification" class="slide level3">
+<h3><em>random forrest</em> does not improve the classification</h3>
+<iframe scrolling="no" style="border:none;" seamless="seamless" data-src="figures/results_classification.html" height="450" width="100%">
+</iframe>
+</section>
+<section id="comparisson-of-trip-duration-with-biking" class="slide level3">
+<h3>comparisson of trip duration with biking</h3>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><em>biking vs.</em></th>
+<th>driving</th>
+<th>driving (traffic)</th>
+<th>transit</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Average differences</td>
+<td><i class="fas fa-arrow-circle-down"></i> -107</td>
+<td><i class="fas fa-arrow-circle-down"></i> -105</td>
+<td><i class="fas fa-arrow-circle-up"></i> 209</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Median differences</td>
+<td><i class="fas fa-arrow-circle-right"></i> 2</td>
+<td><i class="fas fa-arrow-circle-right"></i> -9</td>
+<td><i class="fas fa-arrow-circle-up"></i> 263</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Biking faster</td>
+<td><i class="fas fa-arrow-circle-right"></i> 50%</td>
+<td><i class="fas fa-arrow-circle-right"></i> 48%</td>
+<td><i class="fas fa-arrow-circle-up"></i> 83%</td>
+</tr>
+</tbody>
+</table>
+<div class="smallfont">
+<p>Based on a n=2000 random sample of trips, collected with the GoogleMaps Directions API. Wilcoxon signed-rank test and t-test for pairs are both significant. <i class="fas fa-arrow-circle-up"></i> biking faster | <i class="fas fa-arrow-circle-down"></i> biking slower</p>
+</div>
+</section>
+    </div>
+  </div>
+
+  <script src="https://revealjs.com/lib/js/head.min.js"></script>
+  <script src="https://revealjs.com/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Display a presentation progress bar
+        progress: true,
+        // Display the page number of the current slide
+        slideNumber: true,
+        // Transition style
+        transition: 'none', // none/fade/slide/convex/concave/zoom
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'https://revealjs.com/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'https://revealjs.com/plugin/zoom-js/zoom.js', async: true },
+              { src: 'https://revealjs.com/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>
