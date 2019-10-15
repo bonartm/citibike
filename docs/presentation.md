@@ -103,14 +103,14 @@ tripduration | 1 | 0.15
 
 
 <div class="smallfont">
-The training is based on a random sample of n=5000000 trips, due to ressource and time constraints.
+The training is based on a random sample of n=5000000 trips, due to resource and time constraints.
 </div>
 
 ### *random forrest* does not improve the classification
 
 <iframe scrolling="no" style="border:none;" seamless="seamless" data-src="figures/results_classification.html" height="450" width="100%"></iframe>
 
-### comparisson of trip duration with biking
+### comparison of trip duration with biking
 
 *biking vs.* | driving | driving (traffic) | transit
 :---| --- | --- | --- | ---
