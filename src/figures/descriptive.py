@@ -11,7 +11,7 @@ from plotly.subplots import make_subplots
 
 options = {
     "template": 'presentation+plotly_dark', 
-    "autosize":True 
+    "autosize":True
 }
 
 with sqlite3.connect('citibike.db') as conn:
@@ -69,6 +69,6 @@ plotly.offline.plot(fig, filename='docs/figures/gender.html')
 for name in ['weekday', 'month', 'hour']:
     dat = trips.groupby(['usertype', name]).tripduration.count().reset_index()
     dat = dat.rename(columns={"tripduration": "#trips"})
-    fig = px.bar(dat, x=name, y="#trips", color="usertype", barmode='group')
+    fig = px.bar(dat, x=name, y="#trips", color="usertype", barmode='group', height=500)
     fig.update_layout(**options)
     plotly.offline.plot(fig, filename=f'docs/figures/{name}.html')
