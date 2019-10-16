@@ -13,7 +13,7 @@ CitiBike - visualizations and classification of usertypes (Subscribers vs. Custo
 Fetch the citibike data from the [official S3 container](https://s3.amazonaws.com/tripdata/index.html) with:
 
 ```python
-python ./src/io.py
+python ./src/io/trips.py
 ```
 
 The data is written into the `trips` table of a `sqlite` database with the following column names:
