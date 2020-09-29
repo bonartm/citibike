@@ -36,7 +36,7 @@ packaging==19.2
 pandas==0.25.1
 param==1.9.2
 patsy==0.5.1
-Pillow==6.2.0
+Pillow>=7.1.0
 plotly==4.1.1
 pyarrow==0.15.0
 pycparser==2.19
