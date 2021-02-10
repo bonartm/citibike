@@ -10,7 +10,7 @@ certifi==2019.9.11
 cffi==1.12.3
 chardet==3.0.4
 colorcet==2.0.1
-cryptography==3.2
+cryptography==3.3.2
 cycler==0.10.0
 docutils==0.15.2
 entrypoints==0.3
